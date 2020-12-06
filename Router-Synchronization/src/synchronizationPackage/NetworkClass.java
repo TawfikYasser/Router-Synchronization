@@ -40,11 +40,22 @@ public class NetworkClass {
 		RouterClass routerClass = new RouterClass();
 		routerClass.connect();
 
-//		devices.forEach(elements -> {
-//
-//			System.out.println(elements.getName() + " - " + elements.getType());
-//
-//		});
+	}
+	
+	
+	public synchronized static int connectionNumber() {
+		int i = 0;
+		for (Map.Entry<Integer, Boolean> entry : NetworkClass.connections.entrySet()) {
+
+			if (entry.getValue() == false) {
+				entry.setValue(true);
+				i = entry.getKey();
+				break;
+			}
+
+		}
+
+		return i;
 	}
 
 }

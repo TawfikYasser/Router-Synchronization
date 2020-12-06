@@ -26,7 +26,7 @@ public class SemaphoreClass {
 		bound++;
 		if (bound <= 0)
 			notify();
-		System.out.println("Connection " + getBound() + ": " + name + " Logged out");
+		System.out.println("Connection " + NetworkClass.connectionNumber() + ": " + name + " Logged out");
 
 	}
 

@@ -36,13 +36,23 @@ public class RouterClass implements Runnable {
 		try {
 
 			semaphoreClass.reserve(Thread.currentThread().getName());
-			System.out.println(
-					"Connection " + semaphoreClass.getBound() + ": " + Thread.currentThread().getName() + " Occupied");
-			Thread.currentThread().sleep(1000);
-			System.out.println("Connection " + semaphoreClass.getBound() + ": " + Thread.currentThread().getName()
-					+ " Performs online activity");
-			Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
-			semaphoreClass.release(Thread.currentThread().getName());
+			
+			synchronized (this) {
+				System.out.println("Connection " + NetworkClass.connectionNumber() + ": " + Thread.currentThread().getName() + " Occupied");
+				
+				
+				Thread.currentThread().sleep(1000);
+				
+				
+				System.out.println("Connection " + NetworkClass.connectionNumber() + ": " + Thread.currentThread().getName()+ " Performs online activity");
+				
+				
+				Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
+				
+				
+				semaphoreClass.release(Thread.currentThread().getName());
+
+			}
 
 			Thread.currentThread().stop();
 		} catch (InterruptedException e) {
@@ -52,19 +62,6 @@ public class RouterClass implements Runnable {
 
 	}
 
-	public synchronized static int connectionNumber() {
-		int i = 0;
-		for (Map.Entry<Integer, Boolean> entry : NetworkClass.connections.entrySet()) {
 
-			if (entry.getValue() == false) {
-				entry.setValue(true);
-				i = entry.getKey();
-				break;
-			}
-
-		}
-
-		return i;
-	}
 
 }
