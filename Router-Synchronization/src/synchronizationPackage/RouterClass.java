@@ -34,17 +34,18 @@ public class RouterClass implements Runnable {
 		// TODO Auto-generated method stub
 		Random random = new Random();
 		try {
-
+			String name = "";
 			semaphoreClass.reserve(Thread.currentThread().getName());
 			
-			synchronized (this) {
-				System.out.println("Connection " + NetworkClass.connectionNumber() + ": " + Thread.currentThread().getName() + " Occupied");
+			
+				name = Thread.currentThread().getName();
+				System.out.println("Connection " + NetworkClass.connectionNumber(name, 0) + ": " + Thread.currentThread().getName() + " Occupied");
 				
 				
 				Thread.currentThread().sleep(1000);
 				
 				
-				System.out.println("Connection " + NetworkClass.connectionNumber() + ": " + Thread.currentThread().getName()+ " Performs online activity");
+				System.out.println("Connection " + NetworkClass.connectionNumber(name, 0) + ": " + Thread.currentThread().getName()+ " Performs online activity");
 				
 				
 				Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
@@ -52,7 +53,8 @@ public class RouterClass implements Runnable {
 				
 				semaphoreClass.release(Thread.currentThread().getName());
 
-			}
+				
+			
 
 			Thread.currentThread().stop();
 		} catch (InterruptedException e) {
