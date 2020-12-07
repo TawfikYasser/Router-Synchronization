@@ -39,19 +39,18 @@ public class RouterClass implements Runnable {
 			semaphoreClass.reserve(Thread.currentThread().getName());
 
 			name = Thread.currentThread().getName();
-			System.out.println("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
-					+ Thread.currentThread().getName() + " Occupied");
+			String outF1 = "- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Occupied";
+			System.out.println(outF1);
 
-			FileClasse fileClasse1 = new FileClasse("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
-					+ Thread.currentThread().getName() + " Occupied" + " ");
+			FileClasse fileClasse1 = new FileClasse(outF1 + " ");
 
 			Thread.currentThread().sleep(1000);
+			String outF2 = "- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Performs online activity";
+			System.out.println(outF2);
 
-			System.out.println("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
-					+ Thread.currentThread().getName() + " Performs online activity");
-
-			FileClasse fileClasse2 = new FileClasse("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
-					+ Thread.currentThread().getName() + " Performs online activity" + " ");
+			FileClasse fileClasse2 = new FileClasse(outF2 + " ");
 
 			Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
 

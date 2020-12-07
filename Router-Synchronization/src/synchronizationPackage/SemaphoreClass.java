@@ -16,27 +16,29 @@ public class SemaphoreClass {
 		bound--;
 		if (bound < 0) {
 			int g = 0;
+			String out = name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived and waiting";
+
 			for (int i = 0; i < NetworkClass.devices.size(); i++) {
 				if (NetworkClass.devices.get(i).getName().equals(name)) {
 					g = i;
 					break;
 				}
 			}
-			System.out.println(name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived and waiting");
-			FileClasse fileClasse = new FileClasse(
-					name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived and waiting" + " ");
+			System.out.println(out);
+			FileClasse fileClasse = new FileClasse(out + " ");
 			wait();
 		} else {
 			int g = 0;
+			String out = name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived";
+
 			for (int i = 0; i < NetworkClass.devices.size(); i++) {
 				if (NetworkClass.devices.get(i).getName().equals(name)) {
 					g = i;
 					break;
 				}
 			}
-			System.out.println(name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived");
-			FileClasse fileClasse3 = new FileClasse(
-					name + " ( " + NetworkClass.devices.get(g).getType() + " )" + " Arrived" + " ");
+			System.out.println(out);
+			FileClasse fileClasse3 = new FileClasse(out + " ");
 
 		}
 
@@ -46,10 +48,9 @@ public class SemaphoreClass {
 		bound++;
 		if (bound <= 0)
 			notify();
-
-		System.out.println("- Connection " + NetworkClass.connectionNumber(name, 1) + ": " + name + " Logged out");
-		FileClasse fileClasse4 = new FileClasse(
-				"- Connection " + NetworkClass.connectionNumber(name, 1) + ": " + name + " Logged out" + " ");
+		String out = "- Connection " + NetworkClass.connectionNumber(name, 1) + ": " + name + " Logged out";
+		System.out.println(out);
+		FileClasse fileClasse4 = new FileClasse(out + " ");
 
 	}
 
