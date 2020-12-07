@@ -1,5 +1,6 @@
 package synchronizationPackage;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Random;
 
@@ -36,34 +37,35 @@ public class RouterClass implements Runnable {
 		try {
 			String name = "";
 			semaphoreClass.reserve(Thread.currentThread().getName());
-			
-			
-				name = Thread.currentThread().getName();
-				System.out.println("Connection " + NetworkClass.connectionNumber(name, 0) + ": " + Thread.currentThread().getName() + " Occupied");
-				
-				
-				Thread.currentThread().sleep(1000);
-				
-				
-				System.out.println("Connection " + NetworkClass.connectionNumber(name, 0) + ": " + Thread.currentThread().getName()+ " Performs online activity");
-				
-				
-				Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
-				
-				
-				semaphoreClass.release(Thread.currentThread().getName());
 
-				
-			
+			name = Thread.currentThread().getName();
+			System.out.println("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Occupied");
+
+			FileClasse fileClasse1 = new FileClasse("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Occupied" + " ");
+
+			Thread.currentThread().sleep(1000);
+
+			System.out.println("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Performs online activity");
+
+			FileClasse fileClasse2 = new FileClasse("- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
+					+ Thread.currentThread().getName() + " Performs online activity" + " ");
+
+			Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);
+
+			semaphoreClass.release(Thread.currentThread().getName());
 
 			Thread.currentThread().stop();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
-
-
 
 }
