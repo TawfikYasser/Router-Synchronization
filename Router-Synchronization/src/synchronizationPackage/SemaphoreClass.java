@@ -6,10 +6,12 @@ import synchronizationPackage.*;
 
 public class SemaphoreClass {
 	public Integer bound = 0;
+	public static OutputGUI outputGUI;
 
 	public SemaphoreClass(Integer bound) {
 		// TODO Auto-generated constructor stub
 		this.bound = bound;
+		outputGUI = new OutputGUI();
 	}
 
 	public synchronized void reserve(String name) throws InterruptedException, IOException {
@@ -25,6 +27,7 @@ public class SemaphoreClass {
 				}
 			}
 			System.out.println(out);
+			outputGUI.addUpdates(out+"\n");
 			FileClasse fileClasse = new FileClasse(out + " ");
 			wait();
 		} else {
@@ -38,6 +41,7 @@ public class SemaphoreClass {
 				}
 			}
 			System.out.println(out);
+			outputGUI.addUpdates(out+"\n");
 			FileClasse fileClasse3 = new FileClasse(out + " ");
 
 		}
@@ -50,6 +54,7 @@ public class SemaphoreClass {
 			notify();
 		String out = "- Connection " + NetworkClass.connectionNumber(name, 1) + ": " + name + " Logged out";
 		System.out.println(out);
+		outputGUI.addUpdates(out+"\n");
 		FileClasse fileClasse4 = new FileClasse(out + " ");
 
 	}
