@@ -25,10 +25,6 @@ public class RouterClass implements Runnable {
 
 	}
 
-	public void disConnect() throws InterruptedException {
-
-	}
-
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -42,14 +38,14 @@ public class RouterClass implements Runnable {
 					+ Thread.currentThread().getName() + " Occupied";
 			System.out.println(outF1);
 
-			semaphoreClass.outputGUI.addUpdates(outF1+"\n");
+			semaphoreClass.outputGUI.addUpdates(outF1 + "\n");
 			FileClasse fileClasse1 = new FileClasse(outF1 + " ");
 
 			Thread.currentThread().sleep(1000);
 			String outF2 = "- Connection " + NetworkClass.connectionNumber(name, 0) + ": "
 					+ Thread.currentThread().getName() + " Performs online activity";
 			System.out.println(outF2);
-			semaphoreClass.outputGUI.addUpdates(outF2+"\n");
+			semaphoreClass.outputGUI.addUpdates(outF2 + "\n");
 			FileClasse fileClasse2 = new FileClasse(outF2 + " ");
 
 			Thread.currentThread().sleep((random.nextInt(5) + 1) * 1000);

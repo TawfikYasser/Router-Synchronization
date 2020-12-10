@@ -27,8 +27,8 @@ public class NetworkClass {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome, Enter 1 for Console, Or 2 for GUI ");
 		ch = input.next();
-		if(ch.equals("1")) {
-			
+		if (ch.equals("1")) {
+
 			System.out.println("What is number of WI-FI Connections?");
 			N = input.nextInt();
 
@@ -53,14 +53,12 @@ public class NetworkClass {
 
 			RouterClass routerClass = new RouterClass();
 			routerClass.connect();
-		}else if(ch.equals("2")) {
+
+		} else if (ch.equals("2")) {
 			RouterGUI gui = new RouterGUI();
-			
-		}else {
+		} else {
 			System.out.println("Wrong input.");
 		}
-		
-	
 
 	}
 

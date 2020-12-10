@@ -16,7 +16,7 @@ public class RouterGUI extends JFrame {
 	private JTextField ConnectiostextField;
 	private JTextField DevicestextField;
 
-	public RouterGUI()  throws InterruptedException{
+	public RouterGUI() throws InterruptedException {
 
 		this.setBounds(100, 100, 1000, 619);
 		this.setLocationRelativeTo(null);
@@ -97,7 +97,7 @@ public class RouterGUI extends JFrame {
 				RouterClass routerClass = new RouterClass();
 				try {
 					routerClass.connect();
-				}catch (Exception e) {
+				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
 				}

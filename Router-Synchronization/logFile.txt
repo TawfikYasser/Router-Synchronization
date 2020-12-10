@@ -1,0 +1,16 @@
+C2 ( Mobile ) Arrived 
+C4 ( Mobile ) Arrived 
+- Connection 2: C4 Occupied 
+- Connection 1: C2 Occupied 
+C3 ( Mobile ) Arrived and waiting 
+C1 ( Mobile ) Arrived and waiting 
+- Connection 1: C2 Performs online activity 
+- Connection 2: C4 Performs online activity 
+- Connection 2: C4 Logged out 
+- Connection 2: C3 Occupied 
+- Connection 1: C2 Logged out 
+- Connection 1: C1 Occupied 
+- Connection 2: C3 Performs online activity 
+- Connection 1: C1 Performs online activity 
+- Connection 1: C1 Logged out 
+- Connection 2: C3 Logged out 

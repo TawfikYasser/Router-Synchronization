@@ -27,7 +27,7 @@ public class SemaphoreClass {
 				}
 			}
 			System.out.println(out);
-			outputGUI.addUpdates(out+"\n");
+			outputGUI.addUpdates(out + "\n");
 			FileClasse fileClasse = new FileClasse(out + " ");
 			wait();
 		} else {
@@ -41,7 +41,7 @@ public class SemaphoreClass {
 				}
 			}
 			System.out.println(out);
-			outputGUI.addUpdates(out+"\n");
+			outputGUI.addUpdates(out + "\n");
 			FileClasse fileClasse3 = new FileClasse(out + " ");
 
 		}
@@ -54,7 +54,7 @@ public class SemaphoreClass {
 			notify();
 		String out = "- Connection " + NetworkClass.connectionNumber(name, 1) + ": " + name + " Logged out";
 		System.out.println(out);
-		outputGUI.addUpdates(out+"\n");
+		outputGUI.addUpdates(out + "\n");
 		FileClasse fileClasse4 = new FileClasse(out + " ");
 
 	}
