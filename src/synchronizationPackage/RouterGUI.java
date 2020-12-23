@@ -80,7 +80,6 @@ public class RouterGUI extends JFrame {
 		JButton btnNewButton = new JButton("Start Simulation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// Router router = new Router(Integer.parseInt(ConnectiostextField.getText()));
 				NetworkClass.N = Integer.parseInt(ConnectiostextField.getText());
 				NetworkClass.TC = Integer.parseInt(DevicestextField.getText());
 				String[] names = Names_textArea.getText().split("\s");
